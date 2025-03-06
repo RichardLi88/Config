@@ -103,3 +103,10 @@ vim.keymap.set('i', '<C-BS>', '<Esc>dbi', opts)
 --delete inside quotes and go into insert mode
 vim.keymap.set('n', '<A-S-r>', 'ci"', opts)
 vim.keymap.set('i', '<A-S-r>', 'nci"', opts)
+
+--diagnostic keymaps
+---- Diagnostic keymaps
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
