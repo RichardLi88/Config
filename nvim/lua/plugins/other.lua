@@ -17,4 +17,8 @@ return {
     -- Detect tabstop and shiftwidth automatically
     'tpope/vim-sleuth',
   },
+  {
+    --comment out lines
+    'tpope/vim-commentary',
+  },
 }

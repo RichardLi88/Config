@@ -30,6 +30,8 @@ vim.keymap.set('n', 'x', '"_x', opts)
 -- Vertical scroll and center
 vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
 vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
+vim.keymap.set('n', '<C-f>', '<C-f>zz', opts)
+vim.keymap.set('n', '<C-b>', '<C-b>zz', opts)
 
 -- Find and center
 vim.keymap.set('n', 'n', 'nzzzv')
@@ -58,10 +60,8 @@ vim.keymap.set('n', '<C-A-[>', ':wincmd h<CR>', opts)
 vim.keymap.set('n', '<C-A-]>', ':wincmd l<CR>', opts)
 
 -- Press jk fast to exit insert mode
-vim.keymap.set('i', 'jk', '<ESC>', opts)
-vim.keymap.set('i', 'kj', '<ESC>', opts)
-vim.keymap.set('v', 'jk', '<ESC>', opts)
-vim.keymap.set('v', 'jk', '<ESC>', opts)
+vim.keymap.set({ 'i', 'v' }, 'jk', '<ESC>', opts)
+vim.keymap.set({ 'i', 'v' }, 'kj', '<ESC>', opts)
 
 -- Stay in indent mode
 vim.keymap.set('v', '<', '<gv', opts)
@@ -77,14 +77,18 @@ vim.keymap.set('i', '<A-S-j>', '<Esc>Yp$a', opts)
 vim.keymap.set('n', '<A-S-j>', '<Esc>Yp$a', opts)
 
 --jump to end/start of line
-vim.keymap.set('i', '<C-A-h>', '<Esc>0i', opts)
-vim.keymap.set('i', '<C-A-l>', '<Esc>$a', opts)
-vim.keymap.set('n', '<C-A-h>', '0', opts)
-vim.keymap.set('n', '<C-A-l>', '$', opts)
+vim.keymap.set('i', '<A-H>', '<Esc>0i', opts)
+vim.keymap.set('i', '<A-L>', '<Esc>$a', opts)
+vim.keymap.set('n', '<A-H>', '0', opts)
+vim.keymap.set('n', '<A-L>', '$', opts)
 
 --move to the right/left in insert mode
-vim.keymap.set('i', '<C-l>', '<Right>', opts)
-vim.keymap.set('i', '<C-h>', '<Left>', opts)
+vim.keymap.set('i', '<A-l>', '<Right>', opts)
+vim.keymap.set('i', '<A-h>', '<Left>', opts)
+
+--move up/down in insert mode
+vim.keymap.set('i', '<A-j>', '<Down>', opts)
+vim.keymap.set('i', '<A-k>', '<Up>', opts)
 
 --keep last copied(yanked)
 vim.keymap.set('v', 'p', '"_dP', opts)
@@ -98,15 +102,23 @@ vim.keymap.set('n', '<leader>x', ':bdelete!<CR>', opts) -- close buffer
 vim.keymap.set('n', '<leader>b', '<cmd> enew <CR>', opts) -- new buffer
 
 --control backspace for fast delete
-vim.keymap.set('i', '<C-BS>', '<Esc>dbi', opts)
-
---delete inside quotes and go into insert mode
-vim.keymap.set('n', '<A-S-r>', 'ci"', opts)
-vim.keymap.set('i', '<A-S-r>', 'nci"', opts)
+vim.keymap.set('i', '<C-BS>', '<Esc>dbxi', opts)
 
 --diagnostic keymaps
----- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+-- Shift tab to go back in insert mode
+vim.keymap.set('i', '<S-Tab>', '<C-d>', opts, { noremap = true })
+
+-- visual mode copy stay highlighted
+vim.keymap.set('v', 'y', '+y', opts)
+
+-- remove highlighting
+vim.keymap.set('n', '<leader>/', ':noh<CR>', opts)
+
+-- go back to end of last line
+vim.keymap.set('i', '<A-[>', '<Esc>k$a', opts)
+vim.keymap.set('n', '<A-[>', 'k$', opts)

@@ -29,8 +29,8 @@ return {
         mappings = {
           i = {
             ['<C-k>'] = actions.move_selection_previous, -- move to prev result
-            ['<C-j>'] = actions.move_selection_next,     -- move to next result
-            ['<C-l>'] = actions.select_default,          -- open file
+            ['<C-j>'] = actions.move_selection_next, -- move to next result
+            ['<C-l>'] = actions.select_default, -- open file
           },
           n = {
             ['q'] = actions.close,
@@ -74,12 +74,12 @@ return {
         previewer = false,
       },
     }
-	
-	
-	local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+
+    local builtin = require 'telescope.builtin'
+    vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+    vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+    vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+    vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+    vim.keymap.set('n', '<leader>ds', builtin.lsp_document_symbols, { desc = 'Telescope for document symbols' })
   end,
 }

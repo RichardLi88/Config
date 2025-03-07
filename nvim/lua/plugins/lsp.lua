@@ -98,7 +98,6 @@ return {
         -- word under your cursor when your cursor rests there for a little while.
         --    See `:help CursorHold` for information about when this is executed
         --
-        -- When you move your cursor, the highlights will be cleared (the second autocommand).
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
           local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
@@ -164,22 +163,35 @@ return {
       -- But for many setups, the LSP (`tsserver`) will work just fine
       ts_ls = {}, -- tsserver is deprecated
       ruff = {},
-      pylsp = {
+      pyright = {
         settings = {
-          pylsp = {
-            plugins = {
-              pyflakes = { enabled = false },
-              pycodestyle = { enabled = false },
-              autopep8 = { enabled = false },
-              yapf = { enabled = false },
-              mccabe = { enabled = false },
-              pylsp_mypy = { enabled = false },
-              pylsp_black = { enabled = false },
-              pylsp_isort = { enabled = false },
+          pyright = {
+            disableOrganizeImports = true, -- Using Ruff
+          },
+          python = {
+            analysis = {
+              ignore = { '*' }, -- Using Ruff
+              typeCheckingMode = 'off', -- Using mypy
             },
           },
         },
       },
+      -- pylsp = {
+      --   settings = {
+      --     pylsp = {
+      --       plugins = {
+      --         pyflakes = { enabled = false },
+      --         pycodestyle = { enabled = false },
+      --         autopep8 = { enabled = false },
+      --         yapf = { enabled = false },
+      --         mccabe = { enabled = false },
+      --         pylsp_mypy = { enabled = false },
+      --         pylsp_black = { enabled = false },
+      --         pylsp_isort = { enabled = false },
+      --       },
+      --     },
+      --   },
+      -- },
       html = { filetypes = { 'html', 'twig', 'hbs' } },
       cssls = {},
       tailwindcss = {},
