@@ -24,7 +24,24 @@ return {
 
     local sources = {
       diagnostics.checkmake,
-      formatting.prettier.with { filetypes = { 'html', 'json', 'yaml', 'markdown' } },
+      formatting.prettier.with {
+        filetypes = {
+          'html',
+          'json',
+          'yaml',
+          'markdown',
+          'css',
+          'javascript',
+          'javascriptreact',
+          'typescript',
+          'typescriptreact',
+        },
+      },
+      --Java
+      formatting.google_java_format,
+      diagnostics.checkstyle.with {
+        extra_args = { '-c', '/google_checks.xml' },
+      },
       formatting.stylua,
       formatting.shfmt.with { args = { '-i', '4' } },
       require('none-ls.formatting.ruff').with { extra_args = { '--extend-select', 'I' } },
@@ -35,6 +52,7 @@ return {
     null_ls.setup {
       -- debug = true, -- Enable debug mode. Inspect logs with :NullLsLog.
       sources = sources,
+      vim.keymap.set('n', '<leader>fm', vim.lsp.buf.format, {}),
       -- you can reuse a shared lspconfig on_attach callback here
       on_attach = function(client, bufnr)
         if client.supports_method 'textDocument/formatting' then

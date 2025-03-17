@@ -47,7 +47,6 @@ vim.keymap.set('n', '<Right>', ':vertical resize +2<CR>', opts)
 vim.keymap.set('n', '<Tab>', ':bnext<CR>', opts)
 vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', opts)
 vim.keymap.set('n', '<leader>x', ':Bdelete!<CR>', opts) -- close buffer
-vim.keymap.set('n', '<leader>b', '<cmd> enew <CR>', opts) -- new buffer
 
 -- Window management
 vim.keymap.set('n', '<leader>v', '<C-w>v', opts) -- split window vertically
@@ -60,8 +59,8 @@ vim.keymap.set('n', '<C-A-[>', ':wincmd h<CR>', opts)
 vim.keymap.set('n', '<C-A-]>', ':wincmd l<CR>', opts)
 
 -- Press jk fast to exit insert mode
-vim.keymap.set({ 'i', 'v' }, 'jk', '<ESC>', opts)
-vim.keymap.set({ 'i', 'v' }, 'kj', '<ESC>', opts)
+vim.keymap.set({ 'i' }, 'jk', '<ESC>', opts)
+vim.keymap.set({ 'i' }, 'kj', '<ESC>', opts)
 
 -- Stay in indent mode
 vim.keymap.set('v', '<', '<gv', opts)
@@ -71,15 +70,10 @@ vim.keymap.set('v', '<Tab>', '>gv', opts)
 
 -- Toggle Neotree
 vim.keymap.set('n', '<C-[>', ':Neotree toggle<CR>', opts)
-
---copy line down
-vim.keymap.set('i', '<A-S-j>', '<Esc>Yp$a', opts)
-vim.keymap.set('n', '<A-S-j>', '<Esc>Yp$a', opts)
-
 --jump to end/start of line
-vim.keymap.set('i', '<A-H>', '<Esc>0i', opts)
+vim.keymap.set('i', '<A-H>', '<Esc>^i', opts)
 vim.keymap.set('i', '<A-L>', '<Esc>$a', opts)
-vim.keymap.set('n', '<A-H>', '0', opts)
+vim.keymap.set('n', '<A-H>', '^', opts)
 vim.keymap.set('n', '<A-L>', '$', opts)
 
 --move to the right/left in insert mode
@@ -94,7 +88,7 @@ vim.keymap.set('i', '<A-k>', '<Up>', opts)
 vim.keymap.set('v', 'p', '"_dP', opts)
 
 --copy and paste in visual
-vim.keymap.set('v', '<C-S-c>', '+y', opts)
+vim.keymap.set('v', '<C-S-c>', '"+y', opts)
 
 -- Buffers
 vim.keymap.set('n', '<leader><Tab>', ':bnext<CR>', opts)
@@ -114,11 +108,24 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('i', '<S-Tab>', '<C-d>', opts, { noremap = true })
 
 -- visual mode copy stay highlighted
-vim.keymap.set('v', 'y', '+y', opts)
+vim.keymap.set('v', 'y', '"+y', opts)
 
 -- remove highlighting
 vim.keymap.set('n', '<leader>/', ':noh<CR>', opts)
 
 -- go back to end of last line
-vim.keymap.set('i', '<A-[>', '<Esc>k$a', opts)
-vim.keymap.set('n', '<A-[>', 'k$', opts)
+vim.keymap.set('i', '<A-;>', '<Esc>k$a', opts)
+vim.keymap.set('n', '<A-;>', 'k$', opts)
+
+-- copy line to next line
+vim.keymap.set('i', '<A-J>', '<ESC>yypa', opts)
+vim.keymap.set('i', '<A-K>', '<ESC>yyPa', opts)
+vim.keymap.set('n', '<A-J>', 'yyp', opts)
+vim.keymap.set('n', '<A-K>', 'yyp', opts)
+
+-- move lines
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", opts)
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", opts)
+
+-- paste over lines keep same copy
+vim.keymap.set('x', '<leader>p', '"_dp')

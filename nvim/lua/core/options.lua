@@ -10,3 +10,6 @@ vim.o.softtabstop = 4
 vim.o.swapfile = false
 vim.o.smartindent = true
 vim.o.showtabline = 2
+vim.opt.termguicolors = true
+vim.o.scrolloff = 5
+vim.o.sidescrolloff = 20

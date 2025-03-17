@@ -14,6 +14,18 @@ return {
     opts = {},
   },
   {
+    'windwp/nvim-ts-autotag',
+    config = function()
+      require('nvim-ts-autotag').setup {
+        opts = {
+          enable_close = true,
+          enable_rename = true,
+          enable_close_on_slash = false,
+        },
+      }
+    end,
+  },
+  {
     -- Detect tabstop and shiftwidth automatically
     'tpope/vim-sleuth',
   },
@@ -21,4 +33,5 @@ return {
     --comment out lines
     'tpope/vim-commentary',
   },
+  -- autocomplete command line
 }
