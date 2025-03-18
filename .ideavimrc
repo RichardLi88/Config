@@ -1,0 +1,145 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+" map leader key
+nnoremap <Space> <NOP>
+let mapleader = " "
+
+
+" set vim clipboard with OS clipboard
+set clipboard = unnamedplus
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+""Map <leader>d to start debug
+map <leader>d <Action>(Debug)
+
+
+""" Plugins ------------------------------------------
+set surround
+set multiple-cursors
+set commentary
+set argtextobj
+set easymotion
+set textobj-entire
+set ReplaceWithRegister
+set exchange
+""" --------------------------------------------------
+
+let mapleader=" "
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+set number relativenumber
+set scrolloff=5
+set history=1000
+set visualbell
+set showmode
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set gdefault
+set timeoutlen=500
+set showmode
+
+set highlightedyank
+set NERDTree
+set sneak
+set easymotion
+set surround
+
+nnoremap <c-d> <c-d>zz
+nnoremap <c-u> <c-u>zz
+
+" continuous shift
+xnoremap < <gv
+xnoremap > >gv
+
+nmap <leader>h :nohlsearch<CR>
+
+" Tab navigation
+nnoremap <leader>bn :bnext<CR>
+nnoremap <leader>bp :bprevious<CR>
+nmap <Tab> :action NextTab<CR>
+nmap <leader>t :action GotoTest<CR>
+
+" Move selected line / block of text in visual mode
+xnoremap J :m '>+1<CR>gv=gv
+xnoremap K :m '<-2<CR>gv=gv
+
+" LSP
+nnoremap <leader>lr :action RenameElement<CR>
+nnoremap <leader>lR :action RenameFile<CR>
+nnoremap <leader>lf :action ReformatCode<CR>
+nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
+nnoremap <leader>la :action ShowIntentionActions<CR>
+nnoremap <leader>ll :action ActivateProblemsViewToolWindow<CR>
+
+" gotos
+nmap <leader>a :action GotoAction<CR>
+nmap ga :action GotoAction<CR>
+nmap gf :action GotoFile<CR>
+nmap gs :action GotoSymbol<CR>
+nmap gT :action TextSearchAction<CR>
+nmap go :action GotoSuperMethod<CR>
+nmap gd :action GotoDeclaration<CR>
+nmap gD :action GotoTypeDeclaration<CR>
+nmap gi :action GotoImplementation<CR>
+nmap gI :action QuickImplementations<CR>
+nmap gn :action ShowNavBar<CR>
+nmap gr :action FindUsages<CR>
+
+"navigation in insert mode
+inoremap <M-h> <Left>
+inoremap <M-l> <Right>
+inoremap <M-j> <Down>
+inoremap <M-k> <Up>
+
+" map esc to jk,kj
+imap jk <Esc>
+set timeoutlen=200
+imap kj <Esc>
+set timeoutlen=200
+
+
+"go to start/end of line
+inoremap <M-H> <C-o>^
+inoremap <M-L> <C-o>$
+nnoremap <M-H> <C-o>^
+nnoremap <M-L> <C-o>$
+
+
+" go to end of last line
+inoremap <M-;> <Esc>kA
+
+
+Plug 'preservim/nerdtree'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-commentary'
+Plug 'machakann/vim-highlightedyank'
+
+" center screen on next find
+nnoremap n nzz
+nnoremap N Nzz
+
+" unhighlight
+nnoremap <Leader>/ :nohlsearch<CR>
+
+" copy line down
+nnoremap <M-S-j> yyp$
+inoremap <M-S-j> <Esc>yypA
