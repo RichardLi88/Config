@@ -37,11 +37,6 @@ return {
           'typescriptreact',
         },
       },
-      --Java
-      formatting.google_java_format,
-      diagnostics.checkstyle.with {
-        extra_args = { '-c', '/google_checks.xml' },
-      },
       formatting.stylua,
       formatting.shfmt.with { args = { '-i', '4' } },
       require('none-ls.formatting.ruff').with { extra_args = { '--extend-select', 'I' } },

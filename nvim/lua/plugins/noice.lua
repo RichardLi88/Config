@@ -61,6 +61,14 @@ return {
           },
           view = 'mini',
         },
+        {
+          filter = {
+            event = 'lsp',
+            kind = 'progress',
+            find = 'jdtls',
+          },
+          opts = { skip = true },
+        },
       },
     },
   },

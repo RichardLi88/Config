@@ -76,10 +76,6 @@ return { -- Autocompletion
       },
       completion = { completeopt = 'menu,menuone,noinsert' },
 
-      -- For an understanding of why these mappings were
-      -- chosen, you will need to read `:help ins-completion`
-      --
-      -- No, but seriously. Please read `:help ins-completion`, it is really good!
       mapping = cmp.mapping.preset.insert {
         -- Select the [n]ext item
         ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -111,7 +107,6 @@ return { -- Autocompletion
         --  function $name($args)
         --    $body
         --  end
-        --
         -- <c-l> will move you to the right of each of the expansion locations.
         -- <c-h> is similar, except moving you backwards.
         ['<C-l>'] = cmp.mapping(function()
@@ -173,9 +168,8 @@ return { -- Autocompletion
       },
     }
 
-    -- `/` cmdline setup.
     cmp.setup.cmdline('/', {
-      mapping = cmp.mapping.preset.cmdline(),
+      mapping = cmp.mapping.preset.cmdline {},
       sources = {
         { name = 'buffer' },
       },
@@ -189,9 +183,6 @@ return { -- Autocompletion
       }, {
         {
           name = 'cmdline',
-          option = {
-            ignore_cmds = { 'Man', '!' },
-          },
         },
       }),
     })

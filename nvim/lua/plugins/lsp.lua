@@ -9,8 +9,7 @@ return {
 
     -- Useful status updates for LSP.
     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-    { 'j-hui/fidget.nvim',       opts = {} },
-
+    { 'j-hui/fidget.nvim', opts = {} },
     -- Allows extra capabilities provided by nvim-cmp
     'hrsh7th/cmp-nvim-lsp',
   },
@@ -101,6 +100,11 @@ return {
     })
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
+    -- for ufo.nvim folding
+    capabilities.textDocument.foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true,
+    }
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
     -- Enable the following language servers
@@ -111,6 +115,7 @@ return {
     --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
     --  - settings (table): Override the default settings passed when initializing the server.
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+
     local servers = {
       clangd = {},
       -- gopls = {},
@@ -130,7 +135,7 @@ return {
           },
           python = {
             analysis = {
-              ignore = { '*' },         -- Using Ruff
+              ignore = { '*' }, -- Using Ruff
               typeCheckingMode = 'off', -- Using mypy
             },
           },
@@ -155,7 +160,6 @@ return {
     --
     --  You can press `g?` for help in this menu.
     require('mason').setup()
-
     -- You can add other tools here that you want Mason to install
     -- for you, so that they are available from within Neovim.
     local ensure_installed = vim.tbl_keys(servers or {})
@@ -163,6 +167,13 @@ return {
       'stylua', -- Used to format Lua code
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+
+    require('java').setup {
+      spring_boot_tools = {
+        enable = false,
+      },
+    }
+    require('lspconfig').jdtls.setup {}
 
     require('mason-lspconfig').setup {
       handlers = {

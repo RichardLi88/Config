@@ -49,9 +49,9 @@ vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', opts)
 vim.keymap.set('n', '<leader>x', ':Bdelete!<CR>', opts) -- close buffer
 
 -- Window management
-vim.keymap.set('n', '<leader>v', '<C-w>v', opts) -- split window vertically
-vim.keymap.set('n', '<leader>h', '<C-w>s', opts) -- split window horizontally
-vim.keymap.set('n', '<leader>se', '<C-w>=', opts) -- make split windows equal width & height
+vim.keymap.set('n', '<leader>v', '<C-w>v', opts)     -- split window vertically
+vim.keymap.set('n', '<leader>h', '<C-w>s', opts)     -- split window horizontally
+vim.keymap.set('n', '<leader>se', '<C-w>=', opts)    -- make split windows equal width & height
 vim.keymap.set('n', '<leader>c', ':close<CR>', opts) -- close current split window
 
 -- Navigate between splits
@@ -92,7 +92,7 @@ vim.keymap.set('v', '<C-S-c>', '"+y', opts)
 
 -- Buffers
 vim.keymap.set('n', '<leader><Tab>', ':bnext<CR>', opts)
-vim.keymap.set('n', '<leader>x', ':bdelete!<CR>', opts) -- close buffer
+vim.keymap.set('n', '<leader>x', ':bdelete!<CR>', opts)   -- close buffer
 vim.keymap.set('n', '<leader>b', '<cmd> enew <CR>', opts) -- new buffer
 
 --control backspace for fast delete
@@ -129,3 +129,4 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", opts)
 
 -- paste over lines keep same copy
 vim.keymap.set('x', '<leader>p', '"_dp')
+
