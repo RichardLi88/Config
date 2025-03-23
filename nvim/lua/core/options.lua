@@ -13,3 +13,12 @@ vim.o.showtabline = 2
 vim.opt.termguicolors = true
 vim.o.scrolloff = 5
 vim.o.sidescrolloff = 20
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'c',
+  callback = function()
+    vim.opt_local.tabstop = 2
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.expandtab = true
+  end,
+})
