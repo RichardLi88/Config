@@ -2,18 +2,17 @@ return {
   'kevinhwang91/nvim-ufo',
   dependencies = { 'kevinhwang91/promise-async' },
   config = function()
-    vim.o.foldcolumn = '1' -- Show fold column
-    vim.o.foldlevel = 99 -- Keep folds open by default
-    vim.o.foldlevelstart = 99
-    vim.o.foldenable = true
+    vim.opt.foldlevelstart = 99
+    vim.wo.foldlevel = 99
+    vim.wo.foldcolumn = '1'
+    vim.wo.foldenable = true
 
-    local ufo = require 'ufo'
-    vim.o.foldmethod = 'manual' -- Let ufo handle folding
+    vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+    vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
-    -- Set fold providers
-    ufo.setup {
+    require('ufo').setup {
       provider_selector = function(bufnr, filetype, buftype)
-        return { 'lsp', 'indent' }
+        return { 'treesitter', 'indent' }
       end,
     }
   end,

@@ -58,9 +58,9 @@ vim.keymap.set('n', '<leader>c', ':close<CR>', opts) -- close current split wind
 vim.keymap.set('n', '<C-A-[>', ':wincmd h<CR>', opts)
 vim.keymap.set('n', '<C-A-]>', ':wincmd l<CR>', opts)
 
--- Press jk fast to exit insert mode
-vim.keymap.set({ 'i' }, 'jk', '<ESC>', opts)
-vim.keymap.set({ 'i' }, 'kj', '<ESC>', opts)
+-- -- Press jk fast to exit insert mode
+-- vim.keymap.set({ 'i' }, 'jk', '<ESC>', opts)
+-- vim.keymap.set({ 'i' }, 'kj', '<ESC>', opts)
 
 -- Stay in indent mode
 vim.keymap.set('v', '<', '<gv', opts)
@@ -69,7 +69,7 @@ vim.keymap.set('v', '<S-Tab>', '<gv', opts)
 vim.keymap.set('v', '<Tab>', '>gv', opts)
 
 -- Toggle Neotree
-vim.keymap.set('n', '<C-[>', ':Neotree toggle<CR>', opts)
+vim.keymap.set('n', '<C-;>', ':Neotree toggle<CR>', opts)
 --jump to end/start of line
 vim.keymap.set('i', '<A-H>', '<Esc>^i', opts)
 vim.keymap.set('i', '<A-L>', '<Esc>$a', opts)
@@ -80,9 +80,9 @@ vim.keymap.set('n', '<A-L>', '$', opts)
 vim.keymap.set('i', '<A-l>', '<Right>', opts)
 vim.keymap.set('i', '<A-h>', '<Left>', opts)
 
---move up/down in insert mode
-vim.keymap.set('i', '<A-j>', '<Down>', opts)
-vim.keymap.set('i', '<A-k>', '<Up>', opts)
+----move up/down in insert mode
+--vim.keymap.set('i', '<A-j>', '<Down>', opts)
+--vim.keymap.set('i', '<A-k>', '<Up>', opts)
 
 --keep last copied(yanked)
 vim.keymap.set('v', 'p', '"_dP', opts)
@@ -101,8 +101,8 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
--- Shift tab to go back in insert mode
-vim.keymap.set('i', '<S-Tab>', '<C-d>', opts, { noremap = true })
+-- -- Shift tab to go back in insert mode
+-- vim.keymap.set('i', '<S-Tab>', '<C-d>', opts, { noremap = true })
 
 -- visual mode copy stay highlighted
 vim.keymap.set('v', 'y', '"+y', opts)
