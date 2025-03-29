@@ -13,7 +13,7 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- clear highlights
-vim.keymap.set('n', '<Esc>', ':noh<CR>', opts)
+vim.keymap.set('n', '<esc>', ':noh<CR>', opts)
 
 -- save file
 vim.keymap.set('n', '<C-s>', '<cmd> w <CR>', opts)
@@ -49,9 +49,9 @@ vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', opts)
 vim.keymap.set('n', '<leader>x', ':Bdelete!<CR>', opts) -- close buffer
 
 -- Window management
-vim.keymap.set('n', '<leader>v', '<C-w>v', opts) -- split window vertically
-vim.keymap.set('n', '<leader>h', '<C-w>s', opts) -- split window horizontally
-vim.keymap.set('n', '<leader>se', '<C-w>=', opts) -- make split windows equal width & height
+vim.keymap.set('n', '<leader>v', '<C-w>v', opts)     -- split window vertically
+vim.keymap.set('n', '<leader>h', '<C-w>s', opts)     -- split window horizontally
+vim.keymap.set('n', '<leader>se', '<C-w>=', opts)    -- make split windows equal width & height
 vim.keymap.set('n', '<leader>c', ':close<CR>', opts) -- close current split window
 
 -- Navigate between splits
@@ -80,9 +80,9 @@ vim.keymap.set('n', '<A-L>', '$', opts)
 vim.keymap.set('i', '<A-l>', '<Right>', opts)
 vim.keymap.set('i', '<A-h>', '<Left>', opts)
 
-----move up/down in insert mode
---vim.keymap.set('i', '<A-j>', '<Down>', opts)
---vim.keymap.set('i', '<A-k>', '<Up>', opts)
+--move up/down in insert mode
+vim.keymap.set('i', '<A-j>', '<Down>', opts)
+vim.keymap.set('i', '<A-k>', '<Up>', opts)
 
 --keep last copied(yanked)
 vim.keymap.set('v', 'p', '"_dP', opts)
@@ -92,7 +92,7 @@ vim.keymap.set('v', '<C-S-c>', '"+y', opts)
 
 -- Buffers
 vim.keymap.set('n', '<leader><Tab>', ':bnext<CR>', opts)
-vim.keymap.set('n', '<leader>x', ':bdelete!<CR>', opts) -- close buffer
+vim.keymap.set('n', '<leader>x', ':bdelete!<CR>', opts)   -- close buffer
 vim.keymap.set('n', '<leader>b', '<cmd> enew <CR>', opts) -- new buffer
 
 --diagnostic keymaps
