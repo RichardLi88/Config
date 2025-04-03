@@ -3,6 +3,7 @@ return {
   version = '*',
   dependencies = 'nvim-tree/nvim-web-devicons',
   config = function()
+    local mocha = require('catppuccin.palettes').get_palette 'mocha'
     vim.opt.termguicolors =
       true, require('bufferline').setup {
         options = {
