@@ -17,7 +17,6 @@ return {
             return datetime .. '   Plugins ' .. plugins_count .. nvim_version_info
         end
         local dashboard = require 'alpha.themes.dashboard'
-
         dashboard.section.header.val = {
             [[███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗]],
             [[████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║]],

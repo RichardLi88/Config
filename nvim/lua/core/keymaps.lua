@@ -58,10 +58,6 @@ vim.keymap.set('n', '<leader>c', ':close<CR>', opts) -- close current split wind
 vim.keymap.set('n', '<C-A-[>', ':wincmd h<CR>', opts)
 vim.keymap.set('n', '<C-A-]>', ':wincmd l<CR>', opts)
 
--- -- Press jk fast to exit insert mode
--- vim.keymap.set({ 'i' }, 'jk', '<ESC>', opts)
--- vim.keymap.set({ 'i' }, 'kj', '<ESC>', opts)
-
 -- Stay in indent mode
 vim.keymap.set('v', '<', '<gv', opts)
 vim.keymap.set('v', '>', '>gv', opts)
@@ -70,6 +66,7 @@ vim.keymap.set('v', '<Tab>', '>gv', opts)
 
 -- Toggle Neotree
 vim.keymap.set('n', '<C-;>', ':Neotree toggle<CR>', opts)
+
 --jump to end/start of line
 vim.keymap.set('i', '<A-H>', '<Esc>^i', opts)
 vim.keymap.set('i', '<A-L>', '<Esc>$a', opts)

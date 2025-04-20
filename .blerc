@@ -1,0 +1,5 @@
+ble-face auto_complete='fg=244,underline,italic'
+bleopt exec_errexit_mark=''
+
+#syntax errors
+ble-face -s syntax_error fg=203
