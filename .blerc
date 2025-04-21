@@ -1,4 +1,4 @@
-ble-face auto_complete='fg=244,underline,italic'
+ble-face auto_complete='fg=244,italic'
 bleopt exec_errexit_mark=''
 
 #syntax errors

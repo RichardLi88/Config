@@ -1,6 +1,7 @@
 return {
   {
     'folke/noice.nvim',
+    cond = not vim.g.vscode,
     event = { 'BufReadPost', 'BufNewFile' },
     dependencies = { 'MunifTanjim/nui.nvim' },
     init = function()
